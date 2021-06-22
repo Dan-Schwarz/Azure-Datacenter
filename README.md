@@ -1,5 +1,5 @@
-# NW_CyberSecurity
-Northwestern CyberSecurity Boot Camp
+# Azure Datacenter
+
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
@@ -32,16 +32,10 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting denial of service attacks to the network.
-- _TODO: 
-  -What aspect of security do load balancers protect?  Availibility/Resilancy, protection agains DoS
-  -What is the advantage of a jump box? A jump box can limit administrative access to a network, with enhanced security.  When combined with a tool like ansible it can automate tasks as well.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-- _TODO: What does Filebeat watch for?_Logs, or changes in data, e.g. Audit Logs
-- _TODO: What does Metricbeat record?_System Resources, e.g. CPU Usage, Memory, Disk and Network activity.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name                     | Function      | Internal IP Address | Exernal IP Address | Operating System |
 |--------------------------|---------------|---------------------|--------------------|------------------|
@@ -57,11 +51,9 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the Jump Box and ELK Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_ 73.208.12.246
+Only the Jump Box and ELK Server machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses: 73.208.12.246
 
 Machines within the network can only be accessed by the Jump Box running an Ansible Container.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_10.0.0.4
 
 A summary of the access policies in place can be found in the table below.
 
@@ -78,10 +70,8 @@ A summary of the access policies in place can be found in the table below.
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_ Consistancy, a close second would be time.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - Download Docker and Python3
 - Install Docker and Python3
 - Set virtual memory allocation
@@ -113,7 +103,6 @@ We have installed the following Beats on these machines:
 | ELK01/10.1.0.4 | File & Metric   |
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - Filebeat: Monitors changes in logs
@@ -128,10 +117,8 @@ SSH into the control node and follow the steps below:
 - Copy the install-elk.yml file to the /etc/ansible folder.
 - Run the playbook, and navigate to Kibana, Add Log Data, System Logs, Check Data Source (http://KibannaExt:5601/app/kibana) to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_install-elk.yml -> /etc/ansible
 - _Which file do you update to make Ansible run the playbook on a specific machine? host file
     -How do I specify which machine to install the ELK server on versus which to install Filebeat on?_Use a heading [ELK], place the target IP under this heading.
 - _Which URL do you navigate to in order to check that the ELK server is running?  http://52.229.29.62:5601/app/kibana 
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
